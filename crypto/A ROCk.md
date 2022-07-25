@@ -1,4 +1,4 @@
-# crypto/A ROCk.md
+# crypto/A ROCk
 
 ## Challenge
 
