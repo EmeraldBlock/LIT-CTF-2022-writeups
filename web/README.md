@@ -1,0 +1,3 @@
+# Web exploitation
+
+JS >>> Python
