@@ -23,7 +23,7 @@ await fetch("http://litctf.live:31770/", {
 ```
 (This request has been stripped down to the essentials.)
 
-Then, we just do some templating and map each possible character (we try lowercase only and it works) to a request:
+Then, we just do some templating and map each possible character to a request:
 ```js
 await (async () => {
     const chars = [..."}abcdefghijklmnopqrstuvwxyz"];
@@ -54,7 +54,8 @@ await (async () => {
 ```
 (This is run in the console on the same page, to avoid CORS issues.)
 
-Guessing this flag directly confirms it works.
+
+Note `LIKE` queries are case-insensitive, but it happens that the flag's content is all lowercase, as guessing this flag directly confirms it works.
 
 ## Flag
 

