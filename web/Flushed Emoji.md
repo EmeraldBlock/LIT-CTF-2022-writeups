@@ -42,7 +42,7 @@ app.run(host='127.0.0.1',port=8080,debug=True)
 
 Note that the code uses simple string concatenation for an SQL query. This is a clear sign that we need to do SQL injection.
 
-However, the method doesn't actually return the flag; it only returns `True` or `False`, depending on if the flag is matched by the query. This means we'll need to figure out the flag character-by-character, similar to [Amy the Hedgehog](Amy the Hedgehog.md).
+However, the method doesn't actually return the flag; it only returns `True` or `False`, depending on if the flag is matched by the query. This means we'll need to figure out the flag character-by-character, similar to [Amy the Hedgehog](Amy%20the%20Hedgehog.md).
 
 The second vulnerability is in the `main.py` file of the main server:
 
@@ -150,7 +150,7 @@ ok thank you for your info i have now sold your password (True) for 2 donuts :)
 
 Looking good!
 
-Finally, we can try actually figuring out the letters of the flag. In [Amy the Hedgehog](Amy the Hedgehog.md), we used the `LIKE` keyword to test if our guess was a prefix of the flag. Here, however, we found it more convenient to use the `SUBSTR` keyword to check individual characters of the flag, since `LIKE` is case-insensitive. (Also, some characters, like `_`, need to be escaped when using `LIKE`, which is annoying.)
+Finally, we can try actually figuring out the letters of the flag. In [Amy the Hedgehog](Amy%20the%20Hedgehog.md), we used the `LIKE` keyword to test if our guess was a prefix of the flag. Here, however, we found it more convenient to use the `SUBSTR` keyword to check individual characters of the flag, since `LIKE` is case-insensitive. (Also, some characters, like `_`, need to be escaped when using `LIKE`, which is annoying.)
 
 For example, we know the first character of the flag is `L`. Let's check that using the `SUBSTR` function (note that SQL uses 1-indexed strings, rather than 0-indexed):
 
