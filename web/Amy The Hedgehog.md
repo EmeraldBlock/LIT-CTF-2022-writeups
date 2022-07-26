@@ -41,8 +41,8 @@ await (async () => {
                     })
                 ).text()
             ).includes("You got it!!!")
-        ));
-        const next = chars.filter((_,i) => res[i]);
+        )); // whether each character worked
+        const next = chars.filter((_,i) => res[i]); // correct character(s) (hopefully singular)
         console.log(next);
         if (next.length != 1) throw new Error("bruh");
         flag += next[0];
