@@ -1,4 +1,4 @@
-# misc/We're no strangers to love
+# misc/We're no stranger to love
 
 ## Challenge
 
