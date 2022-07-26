@@ -232,7 +232,7 @@ Character at position 25 is }
 
 ...from which we can just read off our flag.
 
-*Fun fact:* In contest, we initially used `FIND` instead of `SUBSTR`. Also, we forgot to circumvent the `.` filter in the Python solve script. These two mistakes combined made us solve the problem about 24 hours later than we should have.
+*Fun fact:* In contest, we initially used `LIKE` instead of `SUBSTR`. Also, we forgot to circumvent the `.` filter in the Python solve script. These two mistakes combined made us solve the problem about 24 hours later than we should have.
 
 ## Flag
 
