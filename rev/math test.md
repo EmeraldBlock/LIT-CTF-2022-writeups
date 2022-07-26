@@ -22,7 +22,7 @@ Question #7: What number am I thinking of?
 You got 4 out of 10 right!
 If you get a 10 out of 10, I will give you the flag!
 ```
-So we need to find the answers somewhere. The first few are solvable and have answers $2, 4, 240, 3$.
+So we need to find the answers somewhere. The first few are solvable and have answers 2, 4, 240, 3.
 
 We run `objdump -s` and look in section `.data` and find those answers.
 ```

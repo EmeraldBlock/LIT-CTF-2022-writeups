@@ -34,9 +34,9 @@ So this `.exe` was created by pyinstaller. Pyinstaller basically bundles files w
 ![](./extract.png)
 
 In the extracted contents, we find `flag.mp3`, which matches with the weird warning.
-Playing it, we hear a bunch of "he"s and "ha"s. Seems like Morse code, as the hint suggested!
+Playing it, we hear a bunch of "he"s and "haw"s. Seems like Morse code, as the hint suggested!
 
-Transcribing "he"s as shorts and "ha"s as longs, we get
+Transcribing "he"s as shorts and "haw"s as longs, we get
 ```
 .... ...-- .... ...-- .... ...-- .... ....- .-- - .... .-. . . -.-. .-. --- .-- -.
 ```
