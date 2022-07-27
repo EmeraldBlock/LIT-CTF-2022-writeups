@@ -16,4 +16,4 @@ I tried logging in with the username `x` and password `x` (the placeholder crede
 
 ## Flag
 
-I forgot and the service is down now :(
+`LITCTF{CTF_1n_a_CTF?_W0AH_TH1S_I5_l1k3_s0_cr34t1v3}`
