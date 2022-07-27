@@ -6,7 +6,7 @@ Enter the flag, and it will be checked with addition!
 
 [addition](https://drive.google.com/uc?export=download&id=1hRfIzZrNdkjxLpUtnc_8uwyd2jYpOvhV)
 
-# Solution
+## Solution
 
 Let's disassemble it (`objdump -d`):
 ```
@@ -95,6 +95,40 @@ new Array(24).fill(undefined).map((_,i) => String.fromCharCode(c[b[i]]+a[i])).jo
 // LITCTF{add1ti0n_is_h4rd}
 ```
 Note `4060` contains negative values! But since JS bitwise operations are 32-bit, a cool trick to fix is to do `x | 0`.
+
+## Alternate solution (if your native language isn't Assembly)
+
+Putting the executable into [Ghidra](https://ghidra-sre.org/), we can see this function, which appears to be the one that checks our flag:
+
+```c
+undefined8 FUN_00101070(void)
+
+{
+  char cVar1;
+  code cVar2;
+  long lVar3;
+  char local_28 [32];
+  
+  __isoc99_scanf(&DAT_00102004);
+  lVar3 = 0;
+  do {
+    cVar1 = local_28[lVar3];
+    cVar2 = FUN_00101070[(int)(&DAT_001040c0)[lVar3]];
+    (&DAT_001040c0)[lVar3] = (uint)(byte)cVar2 + (&DAT_00104060)[lVar3];
+    if ((uint)(byte)cVar2 + (&DAT_00104060)[lVar3] != (int)cVar1) {
+      puts("wrong");
+      return 0;
+    }
+    lVar3 = lVar3 + 1;
+  } while (lVar3 != 0x18);
+  puts("correct");
+  return 0;
+}
+```
+
+The code looks very complicated at first, but we can see that the input is first taken into the array `local_28`. Then, `lVar3` is a counter that loops 24 times. `cVar2` is equal to `00101070[001040c0[lVar3]]`, so each character of the flag (which we need to input) is given by `00101070[001040c0[lVar3]] + 00104060[lVar3]`. By double clicking on the addresses in Ghidra, we can view the memory stored at those addresses. Then, we can continue in a manner similar to the previous solution.
+
+## Alternate alternate solution (revealed to us after contest)
 
 ![](./clown.png)
 
