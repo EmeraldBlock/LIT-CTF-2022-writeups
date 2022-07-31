@@ -8,7 +8,7 @@ can you find the flag from this amazing codetiger fan picture!!
 
 ## Solution
 
-This seems to be a simple steganography challenge, so we just open the file in a text editor. Immediately, we see a block of XML:
+This seems to be a simple steganography challenge. The image itself doesn't seem to contain anything useful, so we just open the file in a text editor. Immediately, we see a block of XML:
 ```xml
 <x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='Image::ExifTool 12.36'>
 <rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>

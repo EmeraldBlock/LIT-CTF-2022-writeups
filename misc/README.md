@@ -1,3 +1,3 @@
 # Miscellaneous
 
-that's right I can spell! these were overall pretty interesting
+that's right we can spell! these were overall pretty interesting

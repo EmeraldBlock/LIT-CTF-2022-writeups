@@ -6,9 +6,9 @@ Hello! I am Polopopy, and my friends like to call me Ryan. I have an unhealthy ~
 
 ## Solution
 
-Viewing the HTML code of the website doesn't reveal much. The only thing that might be of interest is the [sussy-yellow-amogus](http://litctf.live:31779/sussy-yellow-amogus) gif file, but the flag isn't in there either.
+Viewing the HTML code of the website doesn't reveal much. The only thing that might be of interest is the [sussy-yellow-amogus](http://litctf.live:31779/sussy-yellow-amogus) gif file, but the flag isn't in there either (and this is a web challenge, not a steganography challenge).
 
-However, if we press F12 and go to the `Network` tab, we can see that the site makes a request for the [sussy-yellow-amogus](http://litctf.live:31779/sussy-yellow-amogus) file. Viewing the `Response Headers` section of this request, we can see this:
+However, if we press F12 and go to the `Network` tab, we can see the request the site makes for the [sussy-yellow-amogus](http://litctf.live:31779/sussy-yellow-amogus) file. Viewing the `Response Headers` section of this request, we can see this:
 
 ```
 accept-ranges: bytes
@@ -22,4 +22,5 @@ x-powered-by: Express
 ```
 
 ## Flag
+
 `LITCTF{mr_r4y_h4n_m4y_b3_su55y_bu7_4t_l3ast_h3s_OTZOTZOTZ}`

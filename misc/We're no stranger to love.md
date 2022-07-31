@@ -6,7 +6,7 @@ OMG, the LIT Music Bot is playing my favorite song on the voice channel! Why doe
 
 ## Solution
 
-When we went to the voice channel, we heard some [music](https://www.youtube.com/watch?v=dQw4w9WgXcQ), but it was weirdly distorted in some places. There was clearly some useful information stored in these distortions, so the first step was to record the music coming from the bot so we could analyze it as we pleased. After a few torturous minutes of listening, we finally got [a recording](https://drive.google.com/file/d/1Mjm8Jru8NPBu60XjYO72EvyygRQ7h6lz/view?usp=sharing) of the song from start to finish.
+When we went to the [`#music` voice channel](https://discord.com/channels/738848412912451695/998468612744564746), we heard the bot playing some [music](https://www.youtube.com/watch?v=dQw4w9WgXcQ), but it was weirdly distorted in some places. There was clearly some useful information stored in these distortions, so the first step was to record the music coming from the bot so we could analyze it as we pleased. After a few torturous minutes of listening, we finally got [a recording](https://drive.google.com/file/d/1Mjm8Jru8NPBu60XjYO72EvyygRQ7h6lz/view?usp=sharing) of the song from start to finish.
 
 The first thing to notice is that there are three types of sound effects: long distortions, short distortions, and amogus sound effects.
 

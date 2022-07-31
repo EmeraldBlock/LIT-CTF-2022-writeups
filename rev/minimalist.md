@@ -82,12 +82,12 @@ const [x, y] = `\
  4330 c5ffffff ffffffff a5ffffff ffffffff  ................
  4340 e9ffffff ffffffff b9ffffff ffffffff  ................
  4350 ffffffff ffffffff`
-.split("\n\n").map(a=> // 2-in-1!
-    a.match(/.{8} .{8}/g).map(b=> // extract ints
-        parseInt(b.slice(0, 2),0x10) // just take first 2 hex digits (byte)
+.split("\n\n").map(range=> // Calculate both with the same code. 2-in-1!
+    range.match(/.{8} .{8}/g).map(intstr=> // extract ints
+        parseInt(intstr.slice(0, 2),0x10) // just take first 2 hex digits (a byte)
     )
 );
-String.fromCharCode(...x.map((c,i) =>~(c^y[i])&0xff)); // bitmask because working in bytes
+String.fromCharCode(...x.map((xi,i) =>~(xi^y[i])&0xff)); // bitmask because working in bytes
 // LLITCTF{Wh0_n33ds_a11_th0sE_f4ncy_1nstructions?
 ```
 Not exactly the flag, but close enough to know what it actually is.

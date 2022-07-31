@@ -47,11 +47,11 @@ int main(){
 	return 0;
 }
 ```
-This isn't like before, but it's still another classic problem.
+Because `scanf` (instead of `gets`) is used with a maximum number of characters read (20), this isn't a buffer overflow exploit like before, but it's still another classic problem.
 
 The only output is the `printf`. Note the usage of `printf` over `puts`; `printf`'s first argument can contain format specifiers, which are filled in by the following arguments. But that means we can input format specifiers, but since there are no following arguments, they'll instead be filled in by the contents of the stack, including the flag.
 
-Note the program will only read in 20 characters. To maximize data extracted, we use the format specifier `%p`, a 64-bit pointer address (instead of, say, `%x`, a 32-bit hex integer; to specify longer as in `%xll` uses up characters):
+Note the program will only read in 20 characters. To maximize data extracted, we use the format specifier `%p`, a 64-bit pointer address (instead of, say, `%x`, a 32-bit hex integer; to specify longer as in `%xl` uses up characters):
 ```py
 print("%p"*10)
 ```
@@ -59,7 +59,7 @@ We get
 ```
 0x7f5ea9d9b723(nil)0x7f5ea9cbc0770x190x7c0x667b46544354494c0x747833745f6d30720x755f68732e3772340x61616161616161770x7d61616161616161
 ```
-Conveniently, there are `0x`s delimiting each value. As these are little-endian, we reverse the bytes in each to get the character string:
+(An null pointer (address 0) is printed as `(nil)`.) Conveniently, there are `0x`s delimiting each value. As these are little-endian, we reverse the bytes in each to get the character string:
 ```js
 "..."
 	.replaceAll("(nil)","0x0")

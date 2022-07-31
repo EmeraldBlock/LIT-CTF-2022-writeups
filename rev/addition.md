@@ -54,12 +54,12 @@ Let's disassemble it (`objdump -d`):
 ```
 eh... it's not too complicated. The key part is from `10b2` to `10c7`, with the data locations being initialized from `108b` to `1099`. We also see at `10ac` that it loops 24 times.
 
-So, the flag is `1070[40c0[i]] + 4060[i]` for 24 `i`. We extract 24 sets of 4 bytes (for ints) from `40c0` and `4060`, and since the largest value at `40c0` is `79`, we extract from `1070` to at least `10e9`.
+So, the flag is `1070[40c0[i]] + 4060[i]` for 24 `i`, where `1070` is in bytes and `40c0` and `4060` are in ints. We extract 24 sets of 4 bytes (for ints) from `40c0` and `4060`, and since the largest value at `40c0` is `79`, we extract from `1070` to at least `10e9`. (The values from `1070` come from the program instructions themselves, cool!)
 
 We can just directly copy from the result of `objdump -s`.
 Then, we just generate the flag, with addition!
 ```js
-const [a, b] = `\
+const [_4060, _40c0] = `\
  4060 0f000000 49000000 cbffffff b6ffffff  ....I...........
  4070 0c000000 16000000 33000000 62ffffff  ........3...b...
  4080 64000000 1c000000 7bffffff 2c000000  d.......{...,...
@@ -73,13 +73,12 @@ const [a, b] = `\
  40f0 79000000 6b000000 59000000 73000000  y...k...Y...s...
  4100 2e000000 3a000000 5f000000 6d000000  ....:..._...m...
  4110 04000000 70000000 49000000 27000000  ....p...I...'...`
-    .split("\n\n") // 2-in-1!
-    .map(
-        t=>t.match(/[0-9a-f]{8}/g).map( // get array of sets of 8 bytes (ints)
-            s=>parseInt(s.match(/../g).reverse().join(""),0x10)|0 // reverse bytes and parse int
+    .split("\n\n").map(range=> // Calculate both with the same code. 2-in-1!
+        range.match(/[0-9a-f]{8}/g).map(intstr=> // get array of sets of 8 bytes (ints)
+            parseInt(intstr.match(/../g).reverse().join(""),0x10)|0 // reverse bytes and parse int
         )
     );
-const c = `\
+const _1070 = `\
  1070 53488d3d 8c0f0000 31c04883 ec204889  SH.=....1.H.. H.
  1080 e34889de e8c7ffff ff31c048 8d0d2e30  .H.......1.H...0
  1090 00004c8d 05d7ffff ff488d3d c02f0000  ..L......H.=./..
@@ -88,10 +87,12 @@ const c = `\
  10c0 14878914 8139f274 df488d3d 390f0000  .....9.t.H.=9...
  10d0 e86bffff ff4883c4 2031c05b c3488d3d  .k...H.. 1.[.H.=
  10e0 2b0f0000 e857ffff ffebea0f 1f440000  +....W.......D..`
-    .match(/[0-9a-f]{8}/g) // get array of sets of 8 bytes
-    .flatMap(s => s.match(/../g)) // split into bytes (2 steps to avoid picking up line numbers)
-    .map(p => parseInt(p,0x10)); // parse int
-new Array(24).fill(undefined).map((_,i) => String.fromCharCode(c[b[i]]+a[i])).join("");
+    .match(/[0-9a-f]{8}/g) // get array of groups of 4 bytes
+    .flatMap(group=>group.match(/../g)) // split into bytes (2 steps to avoid picking up line numbers)
+    .map(p=>parseInt(p,0x10)); // parse int
+new Array(24).fill(undefined).map((_,i)=>
+    String.fromCharCode(_1070[_40c0[i]]+_4060[i])
+).join("");
 // LITCTF{add1ti0n_is_h4rd}
 ```
 Note `4060` contains negative values! But since JS bitwise operations are 32-bit, a cool trick to fix is to do `x | 0`.
@@ -126,9 +127,9 @@ undefined8 FUN_00101070(void)
 }
 ```
 
-The code looks very complicated at first, but we can see that the input is first taken into the array `local_28`. Then, `lVar3` is a counter that loops 24 times. `cVar2` is equal to `00101070[001040c0[lVar3]]`, so each character of the flag (which we need to input) is given by `00101070[001040c0[lVar3]] + 00104060[lVar3]`. By double clicking on the addresses in Ghidra, we can view the memory stored at those addresses. Then, we can continue in a manner similar to the previous solution.
+The code looks very complicated at first, but we can see `local_28` is likely the array the input is scanned into. Then, `lVar3` is a counter that loops 24 times. `local_28` is compared character-by-character (`cVar1`) with `cVar2 + 00104060[lVar3]`. `cVar2` is equal to `00101070[001040c0[lVar3]]`, so each character of the flag is given by `00101070[001040c0[lVar3]] + 00104060[lVar3]`. By double-clicking on the addresses in Ghidra, we can view the memory stored at those addresses. Then, we can continue in a manner similar to the previous solution.
 
-## Alternate alternate solution (revealed to us after contest)
+## Alternate alternate solution (revealed to us later)
 
 ![](./clown.png)
 

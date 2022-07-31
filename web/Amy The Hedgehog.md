@@ -54,7 +54,6 @@ await (async () => {
 ```
 (This is run in the console on the same page, to avoid CORS issues.)
 
-
 Note `LIKE` queries are case-insensitive, but it happens that the flag's content is all lowercase, as guessing this flag directly confirms it works.
 
 ## Flag
