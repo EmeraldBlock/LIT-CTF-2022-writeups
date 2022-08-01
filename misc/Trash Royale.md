@@ -17,7 +17,7 @@ Logging on and navigating to `/home`, we see the early access section, but it se
 
 _Also, we see a possible hint:_ The page title is in Morse code and clicking on it alerts "HEHEHAW", which is the translation of the Morse code.
 
-![](./hidden.png)
+![](./Trash%20Royale/hidden.png)
 
 Not invited? No matter! We poke around in the inspector, and find a hidden section that links to the early access page, `/3ar1y-4cc35s`.
 
@@ -27,11 +27,11 @@ From there, we can download the app [trashroyale.exe](https://spectacle-deprive4
 
 We notice the app has the PyInstaller icon. (Also, running it, it has the pygame icon.)
 
-![](./pyinstaller.png)
+![](./Trash%20Royale/pyinstaller.png)
 
 So this `.exe` was created by PyInstaller. PyInstaller basically bundles files with the Python interpreter, so we should be able to extract them back. Searching online, we find an extractor at https://github.com/extremecoders-re/pyinstxtractor.
 
-![](./extract.png)
+![](./Trash%20Royale/extract.png)
 
 In the extracted contents, we find `flag.mp3`, which matches with the weird warning.
 Playing it, we hear a bunch of "he"s and "haw"s. Seems like Morse code, as the hint suggested!

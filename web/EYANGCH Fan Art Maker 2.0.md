@@ -12,7 +12,7 @@ Unfortunately the last Fan Art maker had an unintended extremely easy solution. 
 
 If we don't type anything into the text box, we get the following output:
 
-![eyangch fan art output, flag blocked by component](eyangch-fan-art-output.png)
+![eyangch fan art output, flag blocked by component](./EYANGCH%20Fan%20Art%20Maker%202.0/output.png)
 
 Those blue rectangle things sure are annoying. If we could just make them disappear, we could get the flag.
 

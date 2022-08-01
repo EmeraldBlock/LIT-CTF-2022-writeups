@@ -10,7 +10,7 @@ Woah, [a Capture The Flag challenge](http://litctf.live:31780/), where players c
 
 I tried logging in with the username `x` and password `x` (the placeholder credentials in the codebase), and it turns out that that account already won the flag. Thanks, whoever won it already!
 
-![](./free.png)
+![](./CTF/free.png)
 
 ...oh.
 
