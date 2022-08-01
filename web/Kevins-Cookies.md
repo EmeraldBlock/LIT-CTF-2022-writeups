@@ -13,7 +13,13 @@ On Google Chrome, `Inspect -> Application -> Cookies -> http://litctf.live:31778
 
 Calling the cookie a "true cookie" after I set the value to "true" must have meant that the value should've actually been a number. Brute-forcing all the numbers from 1-20, the value `17` reveals that Kevin loves the 17th cookie too, and he gives us our tasty flag as a reward. Oh, and a cookie too which is tastier obviously.
 
-We can also automate it, but 20 isn't much to just brute-force:
+## Flag
+
+`LITCTF{Bd1mens10n_15_l1k3_sup3r_dup3r_0rzzzz}`
+
+## Notes
+
+We can also automate the last step, but 20 really isn't much to just brute-force:
 ```js
 await (async () => { // IIFE (to use await) not necessary on Chrome
     for (let i = 1; i <= 20; ++i) {
@@ -26,7 +32,3 @@ await (async () => { // IIFE (to use await) not necessary on Chrome
 })()
 // ...<b>LITCTF{Bd1mens10n_15_l1k3_sup3r_dup3r_0rzzzz}</b>...
 ```
-
-## Flag
-
-`LITCTF{Bd1mens10n_15_l1k3_sup3r_dup3r_0rzzzz}`

@@ -39,4 +39,5 @@ So we just need to `SELECT` the "poekmon" (ie the flag) and it'll tell us what i
 `'' OR 1=1` (which would evaluate `names='' OR 1=1` -> `False OR True` -> `True`) won't work since it contains quotes, and `names` (`names=names` -> `True`) is explicitly matched against. Instead, we can use a number instead of an empty string, like `105 OR 1=1`. Or, we can just do <code>names&nbsp;</code> with a space at the end! And with that, we nail our flag.
 
 ## Flag
+
 `LITCTF{flagr3l4t3dt0pok3m0n0rsom3th1ng1dk}`

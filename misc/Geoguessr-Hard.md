@@ -31,3 +31,5 @@ Also, big brain moment predicting the country two days before we actually solved
 We took quite a while on this problem, much longer than the other GeoGuessr ones. We tried seeing if we could locate the place based on the Orange Money kiosk, but the kiosk is generic and although there is [a search tool](https://www.orange.ma/Agences-Orange?service=orange+money), it only covers Northwest Africa.
 
 We only spotted the Street View copyright much later on, after realizing it was Senegal. (Apparently it was supposed to have been cropped out anyway!) Before then, we neglected to consider the Street View constraint until one of our teammates found [this YT video](https://www.youtube.com/watch?v=v7IgkogkAZc) (I'm not LexMACS so that's not a rickroll by the way :D), which mentioned the limited Street View in Africa, and the drop in Senegal looked similar to the environment in the image.
+
+Also, apparently, with the right angle, Google Lens finds the building. Google Lens too OP, gotta use it more

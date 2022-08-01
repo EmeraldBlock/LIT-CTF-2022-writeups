@@ -69,25 +69,25 @@ int main() {
 010 011 000 011 010 001 100 011 110 001
 101 001 111 011 101 101 110 010 011 001
 010 111 010 000 111 110 011 000 000 111
-001 011 111 011 101 011 011 111 001 101 
+001 011 111 011 101 011 011 111 001 101
 ```
 
 Unfortunately comes the part that caused us to miss this during contest. The 1s and 0s probably indicated binary to ASCII, so 8 numbers per char. Even if we had realized that there were padding zeros (the above section has 300 bits, not a multiple of 8), we also failed to realize that we were actually supposed to read the colors vertically and not horizontally.
 
 Now's time for code!! Insert Python here and...
 ```py
-bits = [
-    "000 000 001 110 000 110 001 000 100 101",
-    "001 011 100 100 001 100 100 110 101 100",
-    "001 010 000 100 110 011 110 000 011 011",
-    "100 101 100 101 110 010 101 100 111 011",
-    "010 000 110 011 011 000 111 110 011 110",
-    "010 100 101 111 001 011 101 101 000 111",
-    "010 011 000 011 010 001 100 011 110 001",
-    "101 001 111 011 101 101 110 010 011 001",
-    "010 111 010 000 111 110 011 000 000 111",
-    "001 011 111 011 101 011 011 111 001 101"
-]
+bits = '''\
+000 000 001 110 000 110 001 000 100 101
+001 011 100 100 001 100 100 110 101 100
+001 010 000 100 110 011 110 000 011 011
+100 101 100 101 110 010 101 100 111 011
+010 000 110 011 011 000 111 110 011 110
+010 100 101 111 001 011 101 101 000 111
+010 011 000 011 010 001 100 011 110 001
+101 001 111 011 101 101 110 010 011 001
+010 111 010 000 111 110 011 000 000 111
+001 011 111 011 101 011 011 111 001 101\
+'''.split("\n")
 
 # time to read bits by column, rather than row...
 s = ""
@@ -111,3 +111,49 @@ print(x.to_bytes((x.bit_length() + 7) // 8, 'big').decode())
 `LITCTF{0MG_I_l0ve_th3s3_fla5hy_c0lor}`
 
 So sad we didn't solve this problem in contest, but minus the column bit it was pretty cool.
+
+## Notes
+
+Of course, you could also just type the RGB codes manually.
+
+Or, you could automate it entirely. Feeling overkill?
+```js
+// yes, to read the pixel data of an imported file in web JS,
+// you have to go input -> filereader -> image -> canvas
+
+const listen = async (target, type) =>
+    new Promise((resolve) => {
+        target.addEventListener(type, resolve);
+    })
+
+const input = document.createElement("input");
+input.type = "file";
+input.click();
+await listen(input, "change");
+
+const file = input.files[0];
+const reader = new FileReader();
+reader.readAsDataURL(file);
+await listen(reader, "load");
+
+const image = new Image();
+image.src = reader.result;
+await listen(image, "load");
+
+const canvas = document.createElement("canvas");
+canvas.width = image.width;
+canvas.height = image.height;
+const context = canvas.getContext("2d");
+context.drawImage(image, 0, 0);
+
+let str = "";
+for (let y = 0; y < 10; ++y) {
+    if (y != 0) str += "\n";
+    for (let x = 0; x < 10; ++x) {
+        if (x != 0) str += " ";
+        const [r,g,b] = context.getImageData(image.width*(x+.5)/10, image.height*(y+.5)/10, 1, 1).data;
+        str += [r,g,b].map(n => +(n>=128)).join("");
+    }
+}
+console.log(str);
+```

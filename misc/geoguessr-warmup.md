@@ -14,8 +14,10 @@ Weirdly enough, this helped us a lot. Dropping our pin on Street View at [16 Eur
 
 After some more moving about and randomly dropping pins, we fnally found an area on `Naval Hospital Road` that looked super duper close to the given image. After some movement along the twisty road, we found [the place!](https://www.google.com/maps/place/43+Naval+Hospital+Rd,+Gibraltar+GX11+1AA,+Gibraltar/@36.1223839,-5.3501789,21z/data=!4m5!3m4!1s0xd0cbf752d6526f9:0x83839768e07e7cc!8m2!3d36.1222985!4d-5.3500645)
 
-Fun Fact: We could've solved this a lot faster but we did something really silly. The image mentioned `GH ARMS` which we falsely assumed was `HIGH ARMS`. If you searched up "GH Arms Gibraltar" you would find the territory's "Edinburgh Arms", and the **only** location was right where the flag was.
-
 ## Flag
 
 `LITCTF{36.122,-5.350}`
+
+## Notes
+
+We could've solved this a lot faster but we did something really silly. The image mentioned `GH ARMS` which we falsely assumed was `HIGH ARMS`. If you searched up "GH Arms Gibraltar" you would find the territory's "Edinburgh Arms", and the **only** location was right where the flag was.
