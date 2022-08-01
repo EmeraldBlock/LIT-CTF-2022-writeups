@@ -1,4 +1,4 @@
-# misc/Geoguessr Normal
+# misc/Geoguessr Normal Mode
 
 ## Challenge
 
