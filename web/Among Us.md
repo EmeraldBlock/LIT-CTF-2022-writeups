@@ -24,3 +24,7 @@ x-powered-by: Express
 ## Flag
 
 `LITCTF{mr_r4y_h4n_m4y_b3_su55y_bu7_4t_l3ast_h3s_OTZOTZOTZ}`
+
+## Notes
+
+We spent a while thinking the flag was hidden in the gif itself. What saved us was a comment that mentioned how they too were not doing web on a web challenge!

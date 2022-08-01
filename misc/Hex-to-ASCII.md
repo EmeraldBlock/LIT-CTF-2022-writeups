@@ -1,6 +1,6 @@
 # misc/Hex to ASCII
 
-## Chall
+## Challenge
 
 Do you know how to speak hexadecimal? I love speaking in hexadecimal. In fact, in HexadecimalLand, we like to say
 <br>

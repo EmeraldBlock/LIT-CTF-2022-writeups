@@ -95,3 +95,7 @@ Not exactly the flag, but close enough to know what it actually is.
 ## Flag
 
 `LITCTF{Wh0_n33ds_a11_th0sE_f4ncy_1nstructions?}`
+
+## Notes
+
+I actually spent a while working through the assembly manually. But I messed up somewhere :( The red flag should've been that it was all bitwise operations (besides some stack shuffling, but thankfully it barely did anything). It was still quite cool though!

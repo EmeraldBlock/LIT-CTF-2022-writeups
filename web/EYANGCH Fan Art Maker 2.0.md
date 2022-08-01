@@ -43,7 +43,7 @@ Indeed, it is possible to do this! Digging into the source code (specifically th
 <EYANGOTZ x="150" y="300"></EYANGOTZ>
 ```
 
-So we can just redefine the `EYANGOTZ` component to have nothing in it:
+The code we submit to the website will be appended to this. So we can just redefine the `EYANGOTZ` component to have nothing in it:
 
 ```xml
 <component name="EYANGOTZ"></component>

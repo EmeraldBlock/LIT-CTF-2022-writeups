@@ -1,6 +1,6 @@
 # crypto/Running Up That Hill
 
-## Chall
+## Challenge
 
 If I only could, I'd make a deal with god, and I'd get him to swap our places.
 

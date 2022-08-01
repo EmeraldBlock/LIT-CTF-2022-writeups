@@ -45,3 +45,7 @@ which translates to `H3H3H3H4WTHREECROWN`. (Uppercase matches with the hint, but
 ## Flag
 
 `LITCTF{H3H3H3H4WTHREECROWN}`
+
+## Notes
+
+Apparently you were supposed to just play the game (which isn't hard; just spam cards) and it plays the flag. But with this method, you have the `.mp3` file at your disposal!

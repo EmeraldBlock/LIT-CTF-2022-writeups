@@ -1,6 +1,6 @@
 # misc/Discord Flag
 
-## Chall
+## Challenge
 
 Go to our discord server https://discord.gg/k6yzFdZ for the flag~ We post the latest information and updates there so it's very important.
 

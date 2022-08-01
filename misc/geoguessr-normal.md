@@ -1,6 +1,6 @@
 # misc/Geoguessr Normal
 
-## Chall
+## Challenge
 
 I like the city! The flag is LITCTF{latitude,longtitude} rounded to the third decimal place. (Example: LITCTF{42.444,-71.230})
 

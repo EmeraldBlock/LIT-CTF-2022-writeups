@@ -1,6 +1,6 @@
 # crypto/Flashy Colors
 
-## Chall
+## Challenge
 
 Computer pixels are so interesting. Do you know that they are actually made of three lights? It's like each pixel has 3 tiny light switches, red, green, and blue, that can go on or off to create so many different colors.
 <br>

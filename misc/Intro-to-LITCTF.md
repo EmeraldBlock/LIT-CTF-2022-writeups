@@ -1,6 +1,6 @@
 # misc/Intro to LITCTF
 
-## Chall
+## Challenge
 
 Welcome to your first CTF Challenge! For this problem, you need to first read the [CTF Resource page](https://lit.lhsmathcs.org/ctfres) and find the first half of the flag :D. The second half of the flag can be found at our [Opening Ceremony](https://www.youtube.com/watch?v=5QCkheqOp3s&ab_channel=LexMACS)!
 

