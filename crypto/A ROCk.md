@@ -4,7 +4,7 @@
 
 I used to love RSALib, but not anymore...
 
-[arock.zip](https://drive.google.com/uc?export=download&id=1YlGBKe7x0K5erD9O0SxrFjWcCE7sUvfM)
+[`arock.zip`](https://drive.google.com/file/d/1YlGBKe7x0K5erD9O0SxrFjWcCE7sUvfM/view)
 
 ## Solution
 

@@ -17,7 +17,52 @@ Since this is SuperJ6's alt, we can also set reasonable bounds about where the a
 
 Lastly we have to realize that if SuperJ6 started in June 2019 and competed in the majority of contests since July 2019, the alt account most likely didn't even exist before then.
 
-Now came the hard part (mainly because we've never even worked with APIs before): coding. The Python code [here](https://pastebin.com/YKRQ824a) was used to generate all the info we needed.
+Now came the hard part (mainly because we've never even worked with APIs before): coding. The Python code here was used to generate all the info we needed:
+```py
+import requests
+import json
+import time
+f = open("woot.txt", "w") #cache for the users in case something breaks
+
+superj6orz = json.loads(requests.get('https://codeforces.com/api/user.rating?handle=SuperJ6').content.decode())['result']
+ratedlist = json.loads(requests.get('https://codeforces.com/api/user.ratedList?activeOnly=false&includeRetired=false').content.decode())['result']
+
+contests = set() #all the contests superj6 has participated in
+for d in superj6orz:
+	contests.add(d['contestId'])
+print(len(contests))
+
+users = [] # users with rating in the interval [1600, 2400]
+for d in ratedlist:
+	if d['rating'] >= 1600 and d['rating'] <= 2400:
+		# print(d['handle'])
+		users.append(d['handle'])
+print(len(users))
+
+valid = [] #people in 'users' that have not participated in a contest w/ superj6
+
+for i in range(len(users)):
+	while True:
+		try:
+			s = 'https://codeforces.com/api/user.rating?handle=' + users[i]
+			query = json.loads(requests.get(s).content.decode())['result']
+			same = False #this will be true if 'users[i]' has participated in the same contest as jason
+			old = True #this will be true if 'users[i]'s last contest was before jason's first
+			
+			for d in query:
+				same |= d['contestId'] in contests
+				old &= d['contestId'] <= 1183
+				
+			if not same and not old:
+				valid.append(users[i])
+				f.write(users[i] + '\n')
+				f.flush()
+			time.sleep(0.5)
+			break
+		except:
+			pass
+print(len(valid))
+```
 
 `contests` is a set that contains the ID for every contest SuperJ6 participated in, and `users` contains all users in the rating interval `[1600, 2400]`. Looping through each handle in `user`, we confirm that the handle does not have a contest in common with SuperJ6 (the variable `same`) or a contest before late June 2019 (the variable `old`). If `old` and `same` are both false, the handle is added to the list `valid` and cached into a file in case of program breakdown.
 

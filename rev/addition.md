@@ -4,7 +4,7 @@
 
 Enter the flag, and it will be checked with addition!
 
-[addition](https://drive.google.com/uc?export=download&id=1hRfIzZrNdkjxLpUtnc_8uwyd2jYpOvhV)
+[`addition`](https://drive.google.com/file/d/1hRfIzZrNdkjxLpUtnc_8uwyd2jYpOvhV/view)
 
 ## Solution
 

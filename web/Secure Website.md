@@ -4,7 +4,7 @@
 
 I have like so many things that I want to do, but I am not sure if I want others to see them yet D: I guess I will just hide all the super important stuff behind my super super fortified and secure [Password Checker](http://litctf.live:31776/)!
 
-[SecureWebsite.zip](https://drive.google.com/uc?export=download&id=1ixlV54JoFOGziLzlOewPBijbtePZo8SI)
+[`SecureWebsite.zip`](https://drive.google.com/file/d/1ixlV54JoFOGziLzlOewPBijbtePZo8SI/view)
 
 ## Solution
 

@@ -6,7 +6,7 @@ Can you save our one and only Tyger?
 <br>
 Connect with `nc litctf.live 31786`
 
-[save_tyger.zip](https://drive.google.com/uc?export=download&id=1ePTPwUBKcNLESM2ev1IZEb3kL4SeTcn1)
+[`save_tyger.zip`](https://drive.google.com/file/d/1ePTPwUBKcNLESM2ev1IZEb3kL4SeTcn1/view)
 
 ## Solution
 

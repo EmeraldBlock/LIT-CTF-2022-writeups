@@ -4,7 +4,7 @@
 
 less is more
 
-[minimalist](https://drive.google.com/uc?export=download&id=1vMY6FRx_Eff2ypd9vaZCRr6HYNdPsneX)
+[`minimalist`](https://drive.google.com/file/d/1vMY6FRx_Eff2ypd9vaZCRr6HYNdPsneX/view)
 
 ## Solution
 Running it confirms it's a flag checker:

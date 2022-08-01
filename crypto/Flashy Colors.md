@@ -7,7 +7,7 @@ Computer pixels are so interesting. Do you know that they are actually made of t
 <br>
 Anyway, here are some flashy colors for you.
 
-[flashycolors.png](https://drive.google.com/file/d/1X7PMv0vi-Cp_xKzYeFd_wxxPGY373jgz/view?usp=sharing)
+[`flashycolors.png`](https://drive.google.com/file/d/1X7PMv0vi-Cp_xKzYeFd_wxxPGY373jgz/view)
 
 ## Solution
 

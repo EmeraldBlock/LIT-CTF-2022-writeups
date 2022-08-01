@@ -4,7 +4,7 @@
 
 Have you heard the new trending game? [GUESS THE POKEMON](http://litctf.live:31772/)!!! Please come try out our vast database of pokemons.
 
-[`guess-the-pokemon.zip`](https://drive.google.com/file/d/1Mpxl7ZsbTj0W9a8HfkEcjXC2mUjxNFQW/view?usp=sharing)
+[`guess-the-pokemon.zip`](https://drive.google.com/file/d/1Mpxl7ZsbTj0W9a8HfkEcjXC2mUjxNFQW/view)
 
 ## Solution
 

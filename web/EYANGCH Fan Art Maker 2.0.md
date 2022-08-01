@@ -4,7 +4,7 @@
 
 Unfortunately the last Fan Art maker had an unintended extremely easy solution. Frankly I am disappointed by people's willingness to take the easy route when it comes to ORZing Eyang. To make up for it, here is more [EYANG OTZ OTZ OTZ](http://litctf.live:45392/)
 
-[EyangchFanArt2.zip](https://drive.google.com/uc?export=download&id=1Uc8QfAj9HnOZ9y4IdZpZrshZN4CQp6Qc)
+[`EyangchFanArt2.zip`](https://drive.google.com/file/d/1Uc8QfAj9HnOZ9y4IdZpZrshZN4CQp6Qc/view)
 
 ## Solution
 

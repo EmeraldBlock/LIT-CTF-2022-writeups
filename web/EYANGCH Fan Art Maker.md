@@ -4,7 +4,7 @@
 
 I am biggest fan of Eyang OTZ OTZ OTZ, which is why I built this [EYANGCH Fan Art Maker](http://litctf.live:31775/)
 
-[EyangchFanArt.zip](https://drive.google.com/uc?export=download&id=1WgRH9SvJtNIqmDYpmo1kG0hQTVzjYq1_)
+[`EyangchFanArt.zip`](https://drive.google.com/file/d/1WgRH9SvJtNIqmDYpmo1kG0hQTVzjYq1_/view)
 
 ## Solution
 

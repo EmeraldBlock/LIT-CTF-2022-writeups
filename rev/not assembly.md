@@ -4,7 +4,7 @@
 
 Find the output and wrap it in `LITCTF{}` !
 
-[notassembly.png](https://drive.google.com/uc?export=download&id=1mV8gjChjRDSLuFUYDS_1lZemxA-SBNa7)
+[`notassembly.png`](https://drive.google.com/file/d/1mV8gjChjRDSLuFUYDS_1lZemxA-SBNa7/view)
 
 ## Solution
 

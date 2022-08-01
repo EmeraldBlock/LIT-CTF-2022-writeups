@@ -6,7 +6,7 @@ Tyger needs your help again.
 <br>
 Connect with `nc litctf.live 31788`
 
-[save_tyger2](https://drive.google.com/uc?export=download&id=1qCSTo01YjzrncT0SZGOTouC4egY_q-PX)
+[`save_tyger2`](https://drive.google.com/file/d/1qCSTo01YjzrncT0SZGOTouC4egY_q-PX/view)
 
 ## Solution
 

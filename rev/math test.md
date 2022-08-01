@@ -4,7 +4,7 @@
 
 this math test is hard
 
-[math](https://drive.google.com/uc?export=download&id=1jGE3v40Xk3-Fq2GsnGvwzU8prZEoL3Iz)
+[`math`](https://drive.google.com/file/d/1jGE3v40Xk3-Fq2GsnGvwzU8prZEoL3Iz/view)
 
 ## Solution
 

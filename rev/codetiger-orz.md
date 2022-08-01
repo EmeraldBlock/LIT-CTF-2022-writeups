@@ -4,7 +4,7 @@
 
 codetiger orzzz
 
-[codetiger-orz.zip](https://drive.google.com/uc?export=download&id=12gmnfSKFI2pknJSJbGYTejS5dNcSOOQK)
+[`codetiger-orz.zip`](https://drive.google.com/file/d/12gmnfSKFI2pknJSJbGYTejS5dNcSOOQK/view)
 
 ## Solution
 

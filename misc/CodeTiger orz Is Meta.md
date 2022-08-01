@@ -4,7 +4,7 @@
 
 can you find the flag from this amazing codetiger fan picture!!
 
-[codetigerfanpic.png](https://drive.google.com/uc?export=download&id=16deZrP2tRCF0HxevYHoGXsEXr_xAki3v)
+[`codetigerfanpic.png`](https://drive.google.com/file/d/16deZrP2tRCF0HxevYHoGXsEXr_xAki3v/view)
 
 ## Solution
 

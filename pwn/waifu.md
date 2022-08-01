@@ -6,7 +6,7 @@ Honestly I just needed a name, I am almost out of time :skull:.
 <br>
 Connect with `nc litctf.live 31791`
 
-[waifu.zip](https://drive.google.com/uc?export=download&id=1SVW7rWSdpu3cPYDyATw5a9pJJMH0umTS)
+[`waifu.zip`](https://drive.google.com/file/d/1SVW7rWSdpu3cPYDyATw5a9pJJMH0umTS/view)
 
 ## Solution
 

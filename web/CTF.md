@@ -4,7 +4,7 @@
 
 Woah, [a Capture The Flag challenge](http://litctf.live:31780/), where players capture each other's flags, in a tournament called Capture The Flag? This is so original :O I do need a break from the standard web anyway I guess.
 
-[CTF.zip](https://drive.google.com/uc?export=download&id=1yuA0wX9vkLQObn4L7tJl-rLsICVAu0sC)
+[CTF.zip](https://drive.google.com/file/d/1yuA0wX9vkLQObn4L7tJl-rLsICVAu0sC/view)
 
 ## "Solution"
 

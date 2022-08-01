@@ -4,7 +4,7 @@
 
 Flushed emojis are so cool! Learn more about them [here](http://litctf.live:31781/)!
 
-[FlushedEmojis.zip](https://drive.google.com/uc?export=download&id=1agW3a0-T4VsSJwJVTZ-dWSRLE_byxJya)
+[`FlushedEmojis.zip`](https://drive.google.com/file/d/1agW3a0-T4VsSJwJVTZ-dWSRLE_byxJya/view)
 
 ## Solution
 
