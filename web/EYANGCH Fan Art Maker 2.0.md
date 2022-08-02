@@ -4,7 +4,7 @@
 
 Unfortunately the last Fan Art maker had an unintended extremely easy solution. Frankly I am disappointed by people's willingness to take the easy route when it comes to ORZing Eyang. To make up for it, here is more [EYANG OTZ OTZ OTZ](http://litctf.live:45392/)
 
-[EyangchFanArt2.zip](https://drive.google.com/uc?export=download&id=1Uc8QfAj9HnOZ9y4IdZpZrshZN4CQp6Qc)
+[`EyangchFanArt2.zip`](https://drive.google.com/file/d/1Uc8QfAj9HnOZ9y4IdZpZrshZN4CQp6Qc/view)
 
 ## Solution
 
@@ -12,7 +12,7 @@ Unfortunately the last Fan Art maker had an unintended extremely easy solution. 
 
 If we don't type anything into the text box, we get the following output:
 
-![eyangch fan art output, flag blocked by component](eyangch-fan-art-output.png)
+![eyangch fan art output, flag blocked by component](./EYANGCH%20Fan%20Art%20Maker%202.0/output.png)
 
 Those blue rectangle things sure are annoying. If we could just make them disappear, we could get the flag.
 
@@ -43,7 +43,7 @@ Indeed, it is possible to do this! Digging into the source code (specifically th
 <EYANGOTZ x="150" y="300"></EYANGOTZ>
 ```
 
-So we can just redefine the `EYANGOTZ` component to have nothing in it:
+The code we submit to the website will be appended to this. So we can just redefine the `EYANGOTZ` component to have nothing in it:
 
 ```xml
 <component name="EYANGOTZ"></component>

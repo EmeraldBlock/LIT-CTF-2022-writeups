@@ -4,7 +4,7 @@
 
 Find the output and wrap it in `LITCTF{}` !
 
-[notassembly.png](https://drive.google.com/uc?export=download&id=1mV8gjChjRDSLuFUYDS_1lZemxA-SBNa7)
+[`notassembly.png`](https://drive.google.com/file/d/1mV8gjChjRDSLuFUYDS_1lZemxA-SBNa7/view)
 
 ## Solution
 
@@ -40,7 +40,7 @@ Some of the more unclear ones can be searched up. Here're some notes:
 * $\text{BL}$ and $\text{BU}$ are "branch" (aka "jump") instructions (like in ARM).
   * $\text{C0DETIGER}$ and $\text{0RZ}$ (with $0$'s, not $O$'s) must then be labels, not variables.
   * Coming immediately after a $\text{SUB}$ instruction, $\text{BL}$ is "branch if less than" (not "branch with link", whatever that is).  $\text{BU}$ must then be "unconditional branch", as otherwise the code flow would make no sense.
-    * Here, "less than" with respect to $\text{SUB}$ means "register less than 0" or "register less than subtrahend", as per assembly convention.
+    * Here, "less than" with respect to $\text{SUB}$ means "register (after sub) less than 0" or "register (before sub) less than subtrahend", as per assembly convention.
     * As it turns out, no need to worry about overflow! Anyway, this is pseudocode written in $\LaTeX$ with base-10 numbers, so what do you expect?
 
 Let's just rewrite it in actual code!

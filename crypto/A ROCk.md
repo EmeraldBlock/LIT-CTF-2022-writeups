@@ -4,7 +4,7 @@
 
 I used to love RSALib, but not anymore...
 
-[arock.zip](https://drive.google.com/uc?export=download&id=1YlGBKe7x0K5erD9O0SxrFjWcCE7sUvfM)
+[`arock.zip`](https://drive.google.com/file/d/1YlGBKe7x0K5erD9O0SxrFjWcCE7sUvfM/view)
 
 ## Solution
 
@@ -16,13 +16,13 @@ e=65537
 ct=3831129304332239255280117442393824529915871197799278700713657686877437561020805823052809122048327006270135775002283258453774226602640149683603252934547033
 ```
 
-These three numbers hint at the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) (if it wasn't obvious enough from the challenge text). `n` represents the public key, `e` represents the public key exponent, and `ct` represents the ciphertext, or the encrpyted message.
+These three numbers hint at the [RSA cryptosystem](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) (if it wasn't obvious enough from the challenge text). `n` represents the public key modulus, `e` represents the public key exponent, and `ct` represents the ciphertext, or the encrypted message.
 
-However, under normal circumstances, decrypting a message using only the public key and the public key exponent isn't computationally feasible. This is because we need to factor `n` into two primes `p` and `q`, but factoring numbers as large as the given `n` is extremely computationally expensive.
+However, under normal circumstances, decrypting a message using only the public key isn't computationally feasible (as this is what makes RSA secure). This is because we need to factor `n` into two primes `p` and `q`, but factoring numbers as large as the given `n` is extremely computationally expensive.
 
 Of course, there's a vulnerability in the problem. A quick search for "RSALib vulnerability" reveals the existence of the [ROCA vulnerability](https://en.wikipedia.org/wiki/ROCA_vulnerability). Essentially, RSALib generates primes only of a certain format, so factoring `n` becomes much more feasible since the search space is reduced. Based on the name of the problem, we can assume this solution is intended and that `n` was generated using RSALib's algorithm.
 
-Now, we have to actually factor `n`. There are plenty of online tools to exploit the ROCA vulnerability; the one that our team used was [this one](https://github.com/jix/neca). After running the code and waiting for some time, we found this:
+Now, we have to actually factor `n`. There are a few programs online to exploit the ROCA vulnerability; the one that our team used was [this one](https://github.com/jix/neca). After running the code and waiting for some time, we got this:
 
 ```
 NECA - Not Even Coppersmith's Attack

@@ -1,6 +1,6 @@
 # misc/HelloWorld
 
-## Chall
+## Challenge
 
 Here's an easy CTF problem for demonstration purposes. I will go get some caesar salad while you solve this.
 
@@ -15,4 +15,5 @@ After a dead end on a lead we were confident on, we learned about the great Roma
 Weirdly this led us to yet another dead end, and by that time we realized this was actually a hint at Caesar ciphers. Using some basic online tools we found the flag! A cool example is this brute force caesar cipher we found on this [github site](https://watchbutdonotlearn.github.io/).
 
 ## Flag
+
 `LITCTF{W3lc0m3_T0_L1TCTF}`

