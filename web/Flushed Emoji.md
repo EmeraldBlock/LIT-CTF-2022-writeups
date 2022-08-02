@@ -89,7 +89,7 @@ Perfect! We'll be using a payload like this to get our flag. Now, it's time to g
 
 ### Getting the data server IP
 
-You'll notice in the main server code that the other server's IP is censored. We'll have to it out so we can send requests there ourselves.
+You'll notice in the main server code that the other server's IP is censored. We'll have to figure it out so we can send requests there ourselves.
 
 Inspired by the payload above, we can type this into the `password` blank to read the contents of `main.py` (note the use of `'\x2e'` to bypass the `.` filter):
 
