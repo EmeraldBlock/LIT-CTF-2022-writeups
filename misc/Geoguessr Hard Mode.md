@@ -13,14 +13,14 @@ There were several important details to note in the picture. The building on the
 Searching for African countries that primarily speak French and have a green-yellow-red (in that order) color scheme gives Mali, Guinea, and Senegal.
 
 The picture also had a very faded 2017 copyright on it, implying the image was from Street View.
-![image](https://user-images.githubusercontent.com/64328893/181108745-5492613b-8d86-469f-9c5b-ccdbd7dbbe37.png)
+![close-up with faint text "©2017 Google"](./Geoguessr%20Hard%20Mode/copyright.png)
 
 Welp, we still have three decently-big countries, what are we supposed to do now? But going back to the Street View bit from earlier, we realized only Senegal had street view.
 
 *Cue the random pin drops* And somehow, dropping in Tambacounda, we found the exact building!!
 
 Also, big brain moment predicting the country two days before we actually solved it o:
-<img width="1250" alt="image" src="https://user-images.githubusercontent.com/64328893/181109502-4c24e3f6-6052-44c2-b5c6-b3b5d6827bb1.png">
+![WalrusRamen listing countries. "my bet is on senegal, idk why"](./Geoguessr%20Hard%20Mode/prediction.png)
 
 ## Flag
 

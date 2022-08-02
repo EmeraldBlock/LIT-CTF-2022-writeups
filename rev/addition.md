@@ -97,7 +97,7 @@ new Array(24).fill(undefined).map((_,i)=>
 ```
 Note `4060` contains negative values! But since JS bitwise operations are 32-bit, a cool trick to fix is to do `x | 0`.
 
-![](./addition/clown.png)
+!["🤡 i inteded for ppl to use gdb and just read the flag from memory for addition" - eyangch](./addition/clown.png)
 
 ...oh.
 
@@ -141,6 +141,6 @@ The code looks very complicated at first, but we can see `local_28` is likely th
 
 We gave up on the Ghidra approach because we were too intimidated by the weird variables, and also:
 
-![](./addition/ghidra.png)
+!["are you using ghidra" "oh wait" "try using smth else 🤡" - eyangch](./addition/ghidra.png)
 
 sorry for not being as orz as eyangch :(

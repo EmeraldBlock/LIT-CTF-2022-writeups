@@ -14,7 +14,7 @@ Oh no, it's interactive fiction... three suspects, a clue under the first and pa
 The challenge hint suggests there's some content hidden somewhere here, so let's look in the inspector.
 
 ...oh. All data for all routes is in the HTML file, just hidden. (Yay! Unintended skip?) Well, this looks suspicious...
-![](./MURDER%20MYSTERY/twine.png)
+![within paragraph, string "&amp;#xFEFF;&amp;zwnj;&amp;ZeroWidthSpace;..." extends offscreen](./MURDER%20MYSTERY/twine.png)
 These are all zero-width characters, so that matches with the hint!
 Besides `&#xFEFF;` (the byte-order mark) which only appears at the start, there are lots of `&zwnj;`s and `&ZeroWidthSpace;`s, as well as occasional `&NoBreak;`s which seem like delimiters.
 

@@ -19,7 +19,7 @@ Often in challenges involving an audio file (especially ones with a section that
 
 After downloading the file and putting it into [Audacity](https://www.audacityteam.org/) (or an online spectrogram viewer), we can click the track name on the left and change the viewing method from "Waveform" to "Spectrogram." Then, zooming in on the first few seconds of the track, we find this:
 
-![spectrogram view of track showing characters FLAG: K1RBY1SCOOL!](./kirby!!!/spectrogram.png)
+![spectrogram view of track showing text "FLAG: K1RBY1SCOOL!"](./kirby!!!/spectrogram.png)
 
 ## Flag
 

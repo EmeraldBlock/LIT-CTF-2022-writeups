@@ -92,7 +92,7 @@ Since `checkPassword()` first checks lengths, we need to find the password lengt
 ```
 Rate limits were a bit annoying - they can show up as `429 Too Many Requests`, but they also randomly increase timings with no errors. However, looking at results, it's obvious whether rate limits affected it.
 
-![](./Secure%20Website/timing.png)
+![code prints "a 2198" "aa 114" "aaa 114" ... "aaaaaa 192" ... "aaaaaaaaaa 107"](./Secure%20Website/timing.png)
 Oh, yeah. The first request is always much slower for some reason, but the password isn't gonna be one character, right???
 
 But anyway, hooray! `aaaaaa` has a clear difference! And the rest are almost constant, no need to average trials. We move on:
@@ -124,7 +124,7 @@ await (async () => {
 })()
 ```
 And for `CxIj6p`...
-![](./Secure%20Website/secret.png)
+![part of HTML printed by code, including "...&lt;b&gt;LITCTF{uwu_st3ph4ni3_i5_s0_0rz_0rz_0TZ}&lt;/b&gt;..."](./Secure%20Website/secret.png)
 Yay!
 
 ## Flag
